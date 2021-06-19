@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather APP</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+	<div class="container">
+		<article class="widget">
+			<form action="" method="POST">
+				{% csrf_token %}
+				<div class="input-group input-group-lg">
+					<input type="text" class="form-control" value = {{ city }} name="city" placeholder="Seach by City" required='True'>
+					<button type="submit" class="btn btn-dark ms-2"><i class="bi bi-search"></i></button>
+				</div>
+			</form>
+            {% if temp %}
+                <div class="weatherIcon">
+					<i class="wi wi-owm-{{ code }}"></i>
+					<h5>{{ city }}</h5>
+				</div>
+                <div class="weatherData row">
+                    <div class="col-sm-3">
+                        <h1 class="temperature">{{ temp }}&deg;C</h1>
+                    </div>
+                    <div class="col-sm-6 data">
+                        <h2 class="description">{{ weather }}</h2>
+                        <h3><i class="bi bi-moisture"></i> {{ humidity }}&percnt; &nbsp;<i class="bi bi-wind"></i> {{ wind }} m/s</h3>
+                    </div>
+                    <div class="col-sm-3 date">
+                    <h4 class="month" id="month"></h4>
+                    <h5 class="day" id="day"></h5>
+                    </div>
+                </div>
+            {% else %}
+            <div class="weatherIcon"><i class="bi bi-emoji-dizzy"></i></div>
+            <div class="weatherData">
+                <h1 class="error">Please Enter Valid City</h1>
+            </div>
+            {% endif %}
+		</article>
+	</div>
+    <script>
+        var d = new Date();
+			document.getElementById("day").innerHTML = d.getDate();
+			var month = new Array();
+			month[0] = "January";
+			month[1] = "February";
+			month[2] = "March";
+			month[3] = "April";
+			month[4] = "May";
+			month[5] = "June";
+			month[6] = "July";
+			month[7] = "August";
+			month[8] = "September";
+			month[9] = "October";
+			month[10] = "November";
+			month[11] = "December";
+			document.getElementById("month").innerHTML = month[d.getMonth()];
+    </script>
+</body>
+</html>

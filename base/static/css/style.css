@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+
+body{
+	background: linear-gradient(90deg, #754d8b 0%, #4e5992 100%);
+	font-family: Poiret One;
+}
+.container{
+	display: flex;
+	justify-content:center ;
+	align-items: center;
+	height: 100vh;
+}
+.widget {
+	width: 700px;
+	box-shadow: -7px 8px 82px -1px rgba(0,0,0,0.75);
+}
+.input-group{
+	font-size: 1.4em;
+	width: 70%;
+	margin: 10px auto;
+}
+.weatherIcon{
+	padding: 20px;
+	background-color: #f0f8fa;
+	color: #2e3336;
+	text-align: center;
+}
+.weatherIcon h5{
+	font-size: 2.5em;
+}
+.weatherIcon i {
+	margin: 15px;
+	font-size: 10em;
+}
+.weatherData {
+	margin: 0;
+	background-color: #2e3336;
+}
+.temperature{
+	padding: 20px;
+	margin-top: 10px;
+	color: white;
+	font-size: 3rem;
+	text-align: center;
+}
+.data{
+    text-align: center;
+	padding: 20px;
+	color: white;
+}
+.date{
+    padding-top: 10px;
+	background-color: #4dbde2;
+	color: black;
+	text-align: center;
+}
+.month{
+    font-size: 2em;
+}
+.day{
+	font-size: 3em;
+}
+.error{
+    padding: 20px;
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+}
